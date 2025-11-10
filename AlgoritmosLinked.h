@@ -21,6 +21,7 @@ public:
     AlgoritmosLinked();
     void ordenaMerge(MyLinkedList &lista);
     MyNodoLL* busquedaSecuencial(MyLinkedList &lista, long long key);
+    void makeTree(std::vector<std::string>, int elements);
 
 
 };

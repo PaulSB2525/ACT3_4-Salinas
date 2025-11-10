@@ -131,15 +131,16 @@ bool MyBST::insert(int data, std::string ip) {      //O(h)
         }else {
             current = current->right;
         }
-
-        if (aux->data>data) {
-            aux->left=new MyNodeBST(data,ip);
-        }else {
-            aux->right =new MyNodeBST(data,ip);
-        }
-        this->size++;
-        return true;
     }
+
+    if (aux->data>data) {
+        aux->left=new MyNodeBST(data,ip);
+    }else {
+        aux->right =new MyNodeBST(data,ip);
+    }
+    this->size++;
+    return true;
+
 }
 
 void MyBST::preorder() {
@@ -158,21 +159,25 @@ void MyBST::preorder(MyNodeBST* current, std::vector<int>& result) {        //O(
     preorder(current->left,result);
     preorder(current->right,result);
 }
-void MyBST::inorder() {
-    std::vector<int> result;
+void MyBST::inorder(int num) {
+    std::vector<std::pair<std::vector<std::string>,int>> result;
     inorder(this->root,result);
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << ",";
+    int ip_count=0;
+    for (int i = 0; i < num && ip_count<num; i++) {
+        for (int j=0; j<result[i].first.size(); j++) {
+            std::cout << result[i].first[j] << " " << result[i].second << std::endl;
+            ip_count++;
+        }
     }
 }
 
-void MyBST::inorder(MyNodeBST* current, std::vector<int>& result) {         //O(n)
+void MyBST::inorder(MyNodeBST* current, std::vector<std::pair<std::vector<std::string>,int>>& result) {         //O(n)
     if (current == nullptr) {
         return;
     }
-    inorder(current->left,result);
-    result.push_back(current->data);
     inorder(current->right,result);
+    result.push_back(std::make_pair(current->ip ,current->data));
+    inorder(current->left,result);
 }
 void MyBST::postorder() {
     std::vector<int> result;
@@ -211,6 +216,7 @@ void MyBST::level() {                                       //O(n)
         }
     }
 }
+/*
 void MyBST::visit(int type) {
     if (type == 1) {
         preorder();
@@ -223,7 +229,7 @@ void MyBST::visit(int type) {
     }else {
         std::cout<< "Numero Invalido" << std::endl;
     }
-}
+}*/
 
 int MyBST::height() {
     return height(this->root);

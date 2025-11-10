@@ -92,37 +92,17 @@ MyNodoLL* AlgoritmosLinked::busquedaSecuencial(MyLinkedList& lista, long long ke
     return nullptr;
 }
 
-bool MyBST::insert(int data, int ip) {      //O(h)
-    if (this->root == nullptr) {
-        this->root = new MyNodeBST(data, ip);
-        this->size++;
-        return true;
-    }
-    MyNodeBST *current = this->root;
-    MyNodeBST *aux = nullptr;
-    while (current != nullptr) {
-
-        aux = current;
-        if (current->ip == ip) {
-
-        }
-        /*
-        aux = current;
-        if (current->data == data) {
-            return false;
-        }
-        if (current->data > data) {
-            current = current->left;
+void AlgoritmosLinked::makeTree(std::vector<std::string>& v, int elements) {
+    MyBST ardo;
+    int ip_count=1;
+    for (int i = 0; i < v.size()-1; i++) {
+        if (v[i] == v[i+1]) {
+            ip_count++;
         }else {
-            current = current->right;
+            ardo.insert(ip_count,v[i]);
+            ip_count = 1;
         }
-        */
     }
-    if (aux->data > data) {
-        aux->left = new MyNodeBST(data, ip);
-    }else {
-        aux->right = new MyNodeBST(data, ip);
-    }
-    this->size++;
-    return true;
+    ardo.insert(ip_count,v[v.size()-1]);
+    ardo.inorder(elements);
 }

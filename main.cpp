@@ -6,6 +6,7 @@
 #include <limits>
 #include "AlgoritmosLinked.h"
 #include "MyLinkedList.h"
+#include "MyBST.h"
 
 //Paul Aureliano Sarmiento Baldenebro A00227824
 //Victor André Velázquez Salcido A01647326
@@ -66,6 +67,27 @@ int main() {
         registro = registro->next;
     }
     archivoOrdenado.close();
+
+    std::vector<std::string> ips;
+
+    std::ifstream archivoLectura("bitacoraOrdenadaIP-Eq2-BST.txt");
+
+
+    while (std::getline(archivoLectura, linea)) {
+        std::istringstream flujoIp(linea);
+        std::string ipStr, valoresAnteriores;
+        flujoIp >> valoresAnteriores >> valoresAnteriores >> valoresAnteriores >> ipStr;
+        int pos = ipStr.find(':');
+        ipStr = ipStr.substr(0, pos);
+        ips.push_back(ipStr);
+    }
+
+    archivoOrdenado.close();
+
+
+
+    int elements=5;
+    algoritmos1.makeTree(ips, elements);
 
     std::cout<<"Programa finalizado con exito"<<std::endl;
 

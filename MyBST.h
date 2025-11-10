@@ -29,7 +29,7 @@ class MyBST {
     MyNodeBST* root;
     bool search(int data, MyNodeBST *current);
     void preorder(MyNodeBST* current, std::vector<int>& result);
-    void inorder(MyNodeBST* current, std::vector<int>& result);
+    void inorder(MyNodeBST* current, std::vector<std::pair<std::vector<std::string>,int>>& result);
     void postorder(MyNodeBST* current, std::vector<int>& result);
     int height(MyNodeBST* current);
 
@@ -43,7 +43,7 @@ public:
     bool remove(int data);
 
     void preorder();
-    void inorder();
+    void inorder(int num);
     void postorder();
 
     void level();
