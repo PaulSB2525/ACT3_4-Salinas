@@ -6,7 +6,7 @@
 #define ALGORITMOSLINKED_H
 
 #include "MyLinkedList.h"
-
+#include "MyBST.h"
 
 
 class AlgoritmosLinked {

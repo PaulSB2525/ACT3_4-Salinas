@@ -5,13 +5,21 @@
 #ifndef MYBST_H
 #define MYBST_H
 #include <vector>
+#include <string>
 
 struct MyNodeBST{
     int data;
+    std::vector<std::string> ip;
     MyNodeBST *left,
               *right;
-    MyNodeBST(int data){
+    MyNodeBST(int data, std::vector<std::string> ip){
+        this->ip=ip;
         this->data=data;
+        this->left=this->right=nullptr;
+    }
+    MyNodeBST(int data, std::string one_ip) {
+        this->data=data;
+        this->ip.push_back(one_ip);
         this->left=this->right=nullptr;
     }
 };
@@ -31,7 +39,7 @@ public:
     int length();
     bool isEmpty();
     bool search(int data);
-    bool insert(int data);
+    bool insert(int data, std::string ip);
     bool remove(int data);
 
     void preorder();

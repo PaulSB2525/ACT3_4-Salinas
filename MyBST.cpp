@@ -112,9 +112,9 @@ bool MyBST::remove(int data) {              //O(h)
     return true;
 }
 
-bool MyBST::insert(int data) {      //O(h)
+bool MyBST::insert(int data, std::string ip) {      //O(h)
     if (this->root == nullptr) {
-        this->root = new MyNodeBST(data);
+        this->root = new MyNodeBST(data, ip);
         this->size++;
         return true;
     }
@@ -123,21 +123,23 @@ bool MyBST::insert(int data) {      //O(h)
     while (current != nullptr) {
         aux = current;
         if (current->data == data) {
-            return false;
+            current->ip.push_back(ip);
+            return true;
         }
         if (current->data > data) {
             current = current->left;
         }else {
             current = current->right;
         }
+
+        if (aux->data>data) {
+            aux->left=new MyNodeBST(data,ip);
+        }else {
+            aux->right =new MyNodeBST(data,ip);
+        }
+        this->size++;
+        return true;
     }
-    if (aux->data > data) {
-        aux->left = new MyNodeBST(data);
-    }else {
-        aux->right = new MyNodeBST(data);
-    }
-    this->size++;
-    return true;
 }
 
 void MyBST::preorder() {
