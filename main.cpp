@@ -83,11 +83,12 @@ int main() {
 
     archivoOrdenado.close();
 
-
+    std::cout<<"IP " << "   " << "Repeticiones" << std::endl;
 
     int elements=5;                       // <-- CAMBIAR LA CANTIDAD DE IPs AQUI!!
     algoritmos1.makeTree(ips, elements);
 
+    std::cout<<std::endl;
     std::cout<<"Programa finalizado con exito"<<std::endl;
 
     return 0;
