@@ -78,20 +78,6 @@ void AlgoritmosLinked::ordenaMerge(MyLinkedList& lista) {
     // O(n)
 }
 
-MyNodoLL* AlgoritmosLinked::busquedaSecuencial(MyLinkedList& lista, long long key) {
-    MyNodoLL* actual = lista.head;
-    int lenght = lista.length();
-    int pos = 0;
-
-    for (int i = 0; i < lenght; i++) {
-        if (actual->data.first >= key) {
-            return actual;
-        }
-        actual = actual->next;
-    }
-    return nullptr;
-}
-
 void AlgoritmosLinked::makeTree(std::vector<std::string>& v, int elements) {
     MyBST ardo;
     int ip_count=1;

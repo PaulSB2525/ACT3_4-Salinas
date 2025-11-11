@@ -17,6 +17,20 @@ MyBST::MyBST() {
     this->root = nullptr;
     this->size = 0;
 }
+MyBST::~MyBST() {
+
+    destroyNode(this->root);
+}
+
+void MyBST::destroyNode(MyNodeBST* current){
+    if (current== nullptr) {
+        return;
+    }
+    destroyNode(current->left);
+    destroyNode(current->right);
+
+    delete current;
+}
 
 int MyBST::length() {
     return this->size;
@@ -25,20 +39,6 @@ int MyBST::length() {
 bool MyBST::isEmpty() {
     return this->size==0;
 }
-
-/*bool MyBST::search(int data) {
-    MyNodeBST* current=this->root;
-    while(current!=nullptr) {
-        if (current->data == data) {
-            return true;
-        }if (current->data > data) {
-            current = current->left;
-        }else{
-            current = current->right;
-        }
-    }
-    return false;
-}*/
 
 bool MyBST::search(int data, MyNodeBST *current) {             //O(h)
     if (current==nullptr) {
@@ -159,6 +159,8 @@ void MyBST::preorder(MyNodeBST* current, std::vector<int>& result) {        //O(
     preorder(current->left,result);
     preorder(current->right,result);
 }
+
+//Este metodo se uso al reves (reverse inorder)
 void MyBST::inorder(int num) {
     std::vector<std::pair<std::vector<std::string>,int>> result;
     inorder(this->root,result);
@@ -216,20 +218,6 @@ void MyBST::level() {                                       //O(n)
         }
     }
 }
-/*
-void MyBST::visit(int type) {
-    if (type == 1) {
-        preorder();
-    }else if (type == 2) {
-        inorder();
-    }else if (type == 3) {
-        postorder();
-    }else if (type == 4) {
-        level();
-    }else {
-        std::cout<< "Numero Invalido" << std::endl;
-    }
-}*/
 
 int MyBST::height() {
     return height(this->root);

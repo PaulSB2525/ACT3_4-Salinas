@@ -32,6 +32,7 @@ class MyBST {
     void inorder(MyNodeBST* current, std::vector<std::pair<std::vector<std::string>,int>>& result);
     void postorder(MyNodeBST* current, std::vector<int>& result);
     int height(MyNodeBST* current);
+    void destroyNode(MyNodeBST* current);
 
 public:
     MyBST();
@@ -47,7 +48,6 @@ public:
     void postorder();
 
     void level();
-    void visit(int type);
 
     int height();
 

@@ -3,10 +3,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <limits>
 #include "AlgoritmosLinked.h"
 #include "MyLinkedList.h"
-#include "MyBST.h"
 
 //Paul Aureliano Sarmiento Baldenebro A00227824
 //Victor André Velázquez Salcido A01647326
@@ -86,7 +84,7 @@ int main() {
 
 
 
-    int elements=5;
+    int elements=5;                       // <-- CAMBIAR LA CANTIDAD DE IPs AQUI!!
     algoritmos1.makeTree(ips, elements);
 
     std::cout<<"Programa finalizado con exito"<<std::endl;
