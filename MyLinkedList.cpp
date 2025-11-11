@@ -12,7 +12,7 @@ MyLinkedList::MyLinkedList() {          //O(1) Solo asigna los puntero
     this->head=this->tail=nullptr;
 }
 
-void MyLinkedList::flush() {
+void MyLinkedList::flush() {       //O(n) Recorre toda la lista 1 vez
     if (this->size != 0) {
         MyNodoLL* actual = this->head;
         for (int i=0;i<this->size; i++) {
@@ -62,7 +62,7 @@ std::pair<long long,std::string> MyLinkedList::getAt(int pos) {      //O(n) Reco
     throw std::invalid_argument("No se encontro");
 }
 
-void MyLinkedList::setAt(int pos, std::pair<long long,std::string> data) {
+void MyLinkedList::setAt(int pos, std::pair<long long,std::string> data) { 
     if (this->size>pos) {
         MyNodoLL* actual = this->head;
         for (int i=0; i<this->size; i++) {

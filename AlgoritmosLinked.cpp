@@ -8,7 +8,7 @@ AlgoritmosLinked::AlgoritmosLinked(){};
 // Usamos un pointer-to-pointer para pasar como referencia
 // a los apuntadores de los nodos
 // Recuperado de: https://www.geeksforgeeks.org/cpp/cpp-pointer-to-pointer-double-pointer
-void AlgoritmosLinked::dividirLista(MyNodoLL* head, MyNodoLL** frente, MyNodoLL** atras) {
+void AlgoritmosLinked::dividirLista(MyNodoLL* head, MyNodoLL** frente, MyNodoLL** atras) { // O(n) divide la lista en 2 mitades
     MyNodoLL* rapido;
     MyNodoLL* lento;
     lento = head;
@@ -25,7 +25,6 @@ void AlgoritmosLinked::dividirLista(MyNodoLL* head, MyNodoLL** frente, MyNodoLL*
     *frente = head;
     *atras = lento->next;
     lento->next = nullptr;
-    // O(n)
 }
 
 MyNodoLL* AlgoritmosLinked::merge(MyNodoLL* izquierda, MyNodoLL* derecha) {
@@ -42,7 +41,7 @@ MyNodoLL* AlgoritmosLinked::merge(MyNodoLL* izquierda, MyNodoLL* derecha) {
         resultado->next = merge(izquierda, derecha->next);
     }
 
-    return resultado; // O(n)
+    return resultado; // O(n) mezcla dos listas ordenadas
 }
 
 MyNodoLL* AlgoritmosLinked::mergeSortNodos(MyNodoLL* head) {
@@ -60,7 +59,7 @@ MyNodoLL* AlgoritmosLinked::mergeSortNodos(MyNodoLL* head) {
     atras = mergeSortNodos(atras);
 
     return merge(frente, atras);
-    // O(n log n)
+    // O(n log n) mezcla y ordena la lista
 }
 
 void AlgoritmosLinked::ordenaMerge(MyLinkedList& lista) {
@@ -75,7 +74,7 @@ void AlgoritmosLinked::ordenaMerge(MyLinkedList& lista) {
         }
         actual = actual->next;
     }
-    // O(n)
+    // O(n) recalcula el tail de la lista
 }
 
 void AlgoritmosLinked::makeTree(std::vector<std::string>& v, int elements) {
@@ -91,4 +90,5 @@ void AlgoritmosLinked::makeTree(std::vector<std::string>& v, int elements) {
     }
     ardo.insert(ip_count,v[v.size()-1]);
     ardo.inorder(elements);
+    // O(n log n) inserta los elementos en el arbol y los muestra ordenados
 }

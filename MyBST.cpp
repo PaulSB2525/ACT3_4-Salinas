@@ -13,16 +13,16 @@
 #include <queue>
 #include <vector>
 
-MyBST::MyBST() {
+MyBST::MyBST() { // O(1) solo asigna los valores iniciales
     this->root = nullptr;
     this->size = 0;
 }
-MyBST::~MyBST() {
 
+MyBST::~MyBST() { // O(n) recorre todo el arbol 1 vez
     destroyNode(this->root);
 }
 
-void MyBST::destroyNode(MyNodeBST* current){
+void MyBST::destroyNode(MyNodeBST* current){  // O(n) recorre todo el arbol 1 vez
     if (current== nullptr) {
         return;
     }
@@ -32,15 +32,15 @@ void MyBST::destroyNode(MyNodeBST* current){
     delete current;
 }
 
-int MyBST::length() {
+int MyBST::length() { // O(1) solo devuelve el tamaño
     return this->size;
 }
 
-bool MyBST::isEmpty() {
+bool MyBST::isEmpty() { // O(1) solo compara el tamaño
     return this->size==0;
 }
 
-bool MyBST::search(int data, MyNodeBST *current) {             //O(h)
+bool MyBST::search(int data, MyNodeBST *current) {             //en el mejor de los casos O(1), en el peor O(h) 
     if (current==nullptr) {
         return false;
     }
@@ -55,11 +55,11 @@ bool MyBST::search(int data, MyNodeBST *current) {             //O(h)
     }
 }
 
-bool MyBST::search(int data) {
+bool MyBST::search(int data) {        // O(h) busca un valor en el arbol
     return search(data, this->root);
 }
 
-bool MyBST::remove(int data) {              //O(h)
+bool MyBST::remove(int data) {              //O(h) elimina un nodo del arbol
     if (this->root == nullptr) {
         return false;
     }
@@ -112,7 +112,7 @@ bool MyBST::remove(int data) {              //O(h)
     return true;
 }
 
-bool MyBST::insert(int data, std::string ip) {      //O(h)
+bool MyBST::insert(int data, std::string ip) {      //O(h) inserta un nodo en el arbol
     if (this->root == nullptr) {
         this->root = new MyNodeBST(data, ip);
         this->size++;
@@ -143,7 +143,7 @@ bool MyBST::insert(int data, std::string ip) {      //O(h)
 
 }
 
-void MyBST::preorder() {
+void MyBST::preorder() {      //O(n) recorre todo el arbol 1 vez
     std::vector<int> result;
     preorder(this->root,result);
     for (int i = 0; i < result.size(); i++) {
@@ -151,7 +151,7 @@ void MyBST::preorder() {
     }
 }
 
-void MyBST::preorder(MyNodeBST* current, std::vector<int>& result) {        //O(n)
+void MyBST::preorder(MyNodeBST* current, std::vector<int>& result) {        //O(n) recorre todo el arbol 1 vez
     if (current == nullptr) {
         return;
     }
@@ -161,7 +161,7 @@ void MyBST::preorder(MyNodeBST* current, std::vector<int>& result) {        //O(
 }
 
 //Este metodo se uso al reves (reverse inorder)
-void MyBST::inorder(int num) {
+void MyBST::inorder(int num) {       //O(n) recorre todo el arbol 1 vez
     std::vector<std::pair<std::vector<std::string>,int>> result;
     inorder(this->root,result);
     int ip_count=0;
@@ -173,7 +173,7 @@ void MyBST::inorder(int num) {
     }
 }
 
-void MyBST::inorder(MyNodeBST* current, std::vector<std::pair<std::vector<std::string>,int>>& result) {         //O(n)
+void MyBST::inorder(MyNodeBST* current, std::vector<std::pair<std::vector<std::string>,int>>& result) {         //O(n) recorre todo el arbol 1 vez
     if (current == nullptr) {
         return;
     }
@@ -181,7 +181,8 @@ void MyBST::inorder(MyNodeBST* current, std::vector<std::pair<std::vector<std::s
     result.push_back(std::make_pair(current->ip ,current->data));
     inorder(current->left,result);
 }
-void MyBST::postorder() {
+
+void MyBST::postorder() {      //O(n) recorre todo el arbol 1 vez
     std::vector<int> result;
     postorder(this->root,result);
     for (int i = 0; i < result.size(); i++) {
@@ -189,7 +190,7 @@ void MyBST::postorder() {
     }
 }
 
-void MyBST::postorder(MyNodeBST* current, std::vector<int>& result) {   //O(n)
+void MyBST::postorder(MyNodeBST* current, std::vector<int>& result) {   //O(n) recorre todo el arbol 1 vez
     if (current == nullptr) {
         return;
     }
@@ -198,7 +199,7 @@ void MyBST::postorder(MyNodeBST* current, std::vector<int>& result) {   //O(n)
     result.push_back(current->data);
 }
 
-void MyBST::level() {                                       //O(n)
+void MyBST::level() {                                       //O(n) recorre todo el arbol 1 vez
     if (this->root == nullptr) {
         return;
     }
@@ -219,11 +220,11 @@ void MyBST::level() {                                       //O(n)
     }
 }
 
-int MyBST::height() {
+int MyBST::height() {        //O(n) calcula la altura del arbol
     return height(this->root);
 }
 
-int MyBST::height(MyNodeBST* current) {     //O(n)
+int MyBST::height(MyNodeBST* current) {     //O(n) calcula la altura del arbol
     if (current == nullptr) {
         return 0;
     }
@@ -236,7 +237,7 @@ int MyBST::height(MyNodeBST* current) {     //O(n)
     }
 }
 
-void MyBST::ancestors(int data) {       //O(h)
+void MyBST::ancestors(int data) {       //O(h) muestra los ancestros de un nodo
     MyNodeBST *current = this->root;
     while (current != nullptr) {
         if (current->data == data) {
@@ -251,7 +252,7 @@ void MyBST::ancestors(int data) {       //O(h)
     }
 }
 
-int MyBST::whatLevelAmI(int data) {         //O(h)
+int MyBST::whatLevelAmI(int data) {         //O(h) devuelve el nivel de un nodo
     MyNodeBST *current = this->root;
     int level = 0;
     while (current != nullptr) {
