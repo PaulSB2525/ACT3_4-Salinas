@@ -14,6 +14,7 @@
 // En AlgoritmosLinked.cpp usamos un pointer-to-pointer
 // para pasar como referencia los apuntadores de los nodos
 // Recuperado de: https://www.geeksforgeeks.org/cpp/cpp-pointer-to-pointer-double-pointer
+// Video guia tutorial playlist https://www.youtube.com/playlist?list=PLWtYZ2ejMVJlUu1rEHLC0i_oibctkl0Vh
 
 
 int main() {
