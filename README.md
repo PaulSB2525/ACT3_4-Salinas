@@ -1,13 +1,9 @@
 # Actividad 3.4 – Árbol Binario de Búsqueda (BST) para IPs más frecuentes
 
-**Autor:** Paul Aureliano Sarmiento Baldenebro  
-**Equipo 2**  
-**Materia:** Estructura de Datos  
-**Institución:** Tecnológico de Monterrey  
 
 ---
 
-## 🧠 Descripción General
+## Descripción General
 
 Este programa extiende la actividad integradora anterior, en la cual se ordenaba una bitácora por dirección IP.  
 En esta versión, además de ordenar el archivo, se agregan los accesos por IP (sin tomar en cuenta el puerto) y se almacenan en un **árbol binario de búsqueda (BST)**.  
@@ -16,7 +12,7 @@ El objetivo principal es **encontrar las IPs con más accesos** y mostrar en pan
 
 ---
 
-## ⚙️ Funcionamiento del Programa
+## Funcionamiento del Programa
 
 1. **Lectura del archivo de entrada (`bitacora2.txt`)**  
    - Se leen todas las líneas y se extrae la dirección IP y su puerto.  
@@ -47,7 +43,7 @@ El objetivo principal es **encontrar las IPs con más accesos** y mostrar en pan
 
 ---
 
-## 🧩 Estructuras y métodos principales
+## Estructuras y métodos principales
 
 ### `MyBST`
 - `insert(int data, std::string ip)`: Inserta un nuevo nodo con la frecuencia de accesos y la IP.  
@@ -62,7 +58,7 @@ El objetivo principal es **encontrar las IPs con más accesos** y mostrar en pan
 
 ---
 
-## 🧮 Complejidad de los algoritmos
+## Complejidad de los algoritmos
 
 | Etapa | Algoritmo | Complejidad |
 |--------|------------|-------------|
@@ -73,7 +69,28 @@ El objetivo principal es **encontrar las IPs con más accesos** y mostrar en pan
 
 ---
 
-## 💡 Resultados esperados
+## Resultados esperados
 
 El programa muestra en consola las IPs con más accesos en el siguiente formato:
+192.168.0.1 25
+10.0.0.14 22
+172.16.3.9 19
+---
+Donde el primer valor es la **IP** y el segundo su **frecuencia**.  
+El número de IPs mostradas puede modificarse cambiando el valor de la variable `elements` en `main()`.
 
+---
+
+## Archivos generados
+
+- `bitacoraOrdenadaIP-Eq2-BST.txt`: archivo de salida con las líneas ordenadas por IP.  
+- Impresión en consola de las IPs con mayor número de accesos.
+
+---
+
+## Conclusión
+
+El uso del **BST** fue adecuado para esta actividad porque permitió mantener los datos ordenados por cantidad de accesos y obtener las IPs más frecuentes de forma directa con un recorrido inverso.  
+Las modificaciones a los métodos `insert`, `inorder` y `makeTree` lograron cumplir los requerimientos de modularidad, eficiencia y claridad del problema planteado.
+
+---
