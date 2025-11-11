@@ -72,10 +72,11 @@ El objetivo principal es **encontrar las IPs con más accesos** y mostrar en pan
 ## Resultados esperados
 
 El programa muestra en consola las IPs con más accesos en el siguiente formato:
+´´´console
 192.168.0.1 25
 10.0.0.14 22
 172.16.3.9 19
----
+´´´
 Donde el primer valor es la **IP** y el segundo su **frecuencia**.  
 El número de IPs mostradas puede modificarse cambiando el valor de la variable `elements` en `main()`.
 
